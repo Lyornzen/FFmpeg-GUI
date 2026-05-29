@@ -46,7 +46,7 @@
     },
     "win": {
       "target": "nsis",
-      "sign": null
+      "sign": false
     },
     "linux": {
       "target": "AppImage"

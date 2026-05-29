@@ -53,24 +53,15 @@ jobs:
 
       - name: Package (Windows)
         if: runner.os == 'Windows'
-        run: npx electron-builder --win --win.skipSign
+        run: npx electron-builder --win
         env:
-          # GitHub Actions cannot sign — skip signing
-          CSC_LINK: ''
-          CSC_KEY_PASSWORD: ''
-          WIN_CSC_LINK: ''
-          WIN_CSC_KEY_PASSWORD: ''
+          CSC_IDENTITY_AUTO_DISCOVERY: false
 
       - name: Package (macOS)
         if: runner.os == 'macOS'
         run: npm run package
         env:
-          # Notarization not available on CI — skip signing
-          CSC_LINK: ''
-          CSC_KEY_PASSWORD: ''
-          APPLE_ID: ''
-          APPLE_APP_SPECIFIC_PASSWORD: ''
-          APPLE_TEAM_ID: ''
+          CSC_IDENTITY_AUTO_DISCOVERY: false
 
       - name: Package (Linux)
         if: runner.os == 'Linux'
