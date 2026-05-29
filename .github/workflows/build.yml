@@ -58,6 +58,8 @@ jobs:
           # GitHub Actions cannot sign — skip signing
           CSC_LINK: ''
           CSC_KEY_PASSWORD: ''
+          WIN_CSC_LINK: ''
+          WIN_CSC_KEY_PASSWORD: ''
 
       - name: Package (macOS)
         if: runner.os == 'macOS'
